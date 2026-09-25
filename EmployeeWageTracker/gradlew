@@ -1,0 +1,8 @@
+#!/bin/sh
+# Gradle wrapper launcher.
+# NOTE: gradle/wrapper/gradle-wrapper.jar (a small binary) is not included in
+# this download. Opening this project in Android Studio generates it
+# automatically on first sync. Alternatively, if you have Gradle installed,
+# run `gradle wrapper` once in this folder to create it.
+DIR="$(cd "$(dirname "$0")" && pwd)"
+exec java -cp "$DIR/gradle/wrapper/gradle-wrapper.jar" org.gradle.wrapper.GradleWrapperMain "$@"
