@@ -16,8 +16,8 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Set up Android SDK
-        uses: android-actions/setup-android@v3
+      - name: Accept Android SDK licenses
+        run: yes | $ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager --licenses || true
 
       - name: Generate Gradle wrapper (if jar missing)
         run: |
@@ -30,6 +30,7 @@ jobs:
 
       - name: Build debug APK
         run: ./gradlew assembleDebug --no-daemon
+
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
